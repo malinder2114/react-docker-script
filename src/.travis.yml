@@ -2,9 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-- git lfs pull
-- docker build -f Dockerfile.dev -t malinder2114/react-docker-script .
+- docker build -t malinder2114/react-docker-script -f Dockerfile.dev .
 
 script:
   - docker run malinder2114/react-docker-script npm run test -- --coverage
